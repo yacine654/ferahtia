@@ -89,7 +89,7 @@
     position: relative;
     min-height: 100vh;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     align-items: center;
     padding: 100px 7% 60px;
     gap: 60px;
@@ -656,6 +656,78 @@
     transition: width 1.5s ease;
   }
 
+  /* ─── CONTACT SECTION ─── */
+  .contact-section-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .contact-card {
+    background: var(--navy3);
+    border: 1px solid var(--border);
+    padding: 36px 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .contact-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--amber), transparent);
+    transition: opacity 0.3s;
+    opacity: 0;
+  }
+
+  .contact-card:hover {
+    border-color: var(--amber);
+    box-shadow: var(--glow);
+    transform: translateY(-4px);
+  }
+
+  .contact-card:hover::before { opacity: 1; }
+
+  .contact-card-icon {
+    width: 56px;
+    height: 56px;
+    background: var(--amber-dim);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: var(--amber);
+    margin-bottom: 20px;
+  }
+
+  .contact-card-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--amber);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .contact-card-val {
+    font-size: 14px;
+    color: var(--white);
+    font-weight: 500;
+    word-break: break-all;
+  }
+
   /* ─── FOOTER ─── */
   footer {
     position: relative;
@@ -734,6 +806,7 @@
     .hero-btns { justify-content: center; }
     .hero-image-wrap { order: -1; }
     .hero-badge { left: 50%; transform: translateX(-50%); }
+    .contact-section-grid { grid-template-columns: 1fr; }
     .about-grid { grid-template-columns: 1fr; }
     .edu-grid, .projects-grid { grid-template-columns: 1fr; }
     .lang-grid { grid-template-columns: 1fr; }
@@ -755,7 +828,7 @@
     <li><a href="#education">Education</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projects</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#contact-section">Contact</a></li>
   </ul>
 </nav>
 
@@ -768,11 +841,11 @@
     <p class="hero-desc">A passionate civil engineering student combining structural analysis, computational tools, and modern software to deliver precise, data-driven solutions.</p>
     <div class="hero-btns">
       <a href="#projects" class="btn-primary">View Projects</a>
-      <a href="#contact" class="btn-outline">Contact Me</a>
+      <a href="#contact-section" class="btn-outline">Contact Me</a>
     </div>
   </div>
 
-  <div class="hero-image-wrap">
+  <div class="hero-image-wrap" style="display:none">
     <div class="corner-deco tl"></div>
     <div class="corner-deco tr"></div>
     <div class="corner-deco bl"></div>
@@ -818,28 +891,7 @@
       <p>I'm Yassine Ferahtia, a 20-year-old civil engineering student at Msila University, Algeria. I combine strong analytical foundations with hands-on technical skills in structural design, surveying, and computational modelling.</p>
       <p>My work spans from seismic structural analysis and reinforced concrete design to soil settlement prediction using MATLAB, reflecting a passion for applying theory to real-world engineering challenges.</p>
 
-      <div class="about-contacts" id="contact">
-        <div class="contact-row">
-          <div class="contact-icon">✉</div>
-          <div>
-            <div class="contact-label">Email</div>
-            <div class="contact-val">yassineferahtia1@gmail.com</div>
-          </div>
-        </div>
-        <div class="contact-row">
-          <div class="contact-icon">☎</div>
-          <div>
-            <div class="contact-label">Phone</div>
-            <div class="contact-val">+213 777 773 097</div>
-          </div>
-        </div>
-        <div class="contact-row">
-          <div class="contact-icon">📍</div>
-          <div>
-            <div class="contact-label">Location</div>
-            <div class="contact-val">Mâadid, M'Sila, Algeria</div>
-          </div>
-        </div>
+      <div class="about-contacts">
       </div>
     </div>
 
@@ -1080,6 +1132,33 @@
       <div class="lang-level">C1</div>
       <div class="lang-bar"><div class="lang-fill" style="width: 86%"></div></div>
     </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact-section" style="background: var(--navy2);">
+  <div class="section-header reveal">
+    <div class="section-tag">07</div>
+    <h2 class="section-title">CONTACT</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="contact-section-grid">
+    <a class="contact-card reveal" href="mailto:yassineferahtia1@gmail.com">
+      <div class="contact-card-icon">✉</div>
+      <div class="contact-card-label">Email</div>
+      <div class="contact-card-val">yassineferahtia1@gmail.com</div>
+    </a>
+    <a class="contact-card reveal" href="tel:+213777773097">
+      <div class="contact-card-icon">☎</div>
+      <div class="contact-card-label">Phone</div>
+      <div class="contact-card-val">+213 777 773 097</div>
+    </a>
+    <a class="contact-card reveal" href="https://maps.google.com/?q=Maadid,M%27Sila,Algeria" target="_blank" rel="noopener">
+      <div class="contact-card-icon">📍</div>
+      <div class="contact-card-label">Location</div>
+      <div class="contact-card-val">Mâadid, M'Sila, Algeria</div>
+    </a>
   </div>
 </section>
 
