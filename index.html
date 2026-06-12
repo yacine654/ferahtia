@@ -1,0 +1,1827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yassine Ferahtia — Civil Engineer</title>
+
+<!-- ─── FAVICON: hard-hat SVG ─── -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b0f1a'/%3E%3C!-- brim --%3E%3Crect x='4' y='20' width='24' height='3' rx='1.5' fill='%23f0a500'/%3E%3C!-- dome --%3E%3Cpath d='M8 20 C8 12 10 8 16 8 C22 8 24 12 24 20 Z' fill='%23f0a500'/%3E%3C!-- stripe --%3E%3Crect x='14.5' y='8' width='3' height='12' rx='1' fill='%230b0f1a' opacity='0.35'/%3E%3C/svg%3E">
+
+<!-- ─── OPEN GRAPH ─── -->
+<meta property="og:type"        content="website">
+<meta property="og:title"       content="Yassine Ferahtia — Civil Engineer">
+<meta property="og:description" content="Civil Engineering student specialising in structural analysis, seismic design, and computational tools. Based in M'Sila, Algeria.">
+<meta property="og:url"         content="https://yassineferahtia.com">
+<meta property="og:image"       content="https://yassineferahtia.com/og-preview.jpg">
+<meta property="og:image:width"  content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale"      content="en_US">
+<meta property="og:site_name"   content="Yassine Ferahtia">
+
+<!-- ─── TWITTER / X CARD ─── -->
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:title"       content="Yassine Ferahtia — Civil Engineer">
+<meta name="twitter:description" content="Civil Engineering student specialising in structural analysis, seismic design, and computational tools. Based in M'Sila, Algeria.">
+<meta name="twitter:image"       content="https://yassineferahtia.com/og-preview.jpg">
+
+<!-- ─── SEO ─── -->
+<meta name="description" content="Civil Engineering student specialising in structural analysis, seismic design, and computational tools. Based in M'Sila, Algeria.">
+<meta name="author"      content="Yassine Ferahtia">
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0b0f1a;
+    --navy2: #111827;
+    --navy3: #1a2236;
+    --amber: #f0a500;
+    --amber2: #ffc235;
+    --amber-dim: rgba(240,165,0,0.15);
+    --white: #f0eff0;
+    --gray: #8b9ab5;
+    --gray2: #4b5a72;
+    --border: rgba(240,165,0,0.2);
+    --glow: 0 0 30px rgba(240,165,0,0.15);
+  }
+
+  :root.light-mode {
+    --navy: #f5f1ed;
+    --navy2: #ede8e3;
+    --navy3: #e0dbd4;
+    --amber: #b8714f;
+    --amber2: #c9835a;
+    --amber-dim: rgba(184, 113, 79, 0.12);
+    --white: #2a2a2a;
+    --gray: #5a5a5a;
+    --gray2: #7a7a7a;
+    --border: rgba(184, 113, 79, 0.2);
+    --glow: 0 0 30px rgba(184, 113, 79, 0.1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Space Grotesk', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  /* ─── INTRO SCREEN ─── */
+  .intro-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.8s ease-out 0.5s;
+  }
+
+  .intro-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .intro-svg {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+  }
+
+  .intro-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 120px;
+    font-weight: 700;
+    color: var(--amber);
+    text-shadow: 0 0 30px rgba(240, 165, 0, 0.4);
+    letter-spacing: 2px;
+  }
+
+  .intro-text-stroke {
+    stroke: var(--amber);
+    stroke-width: 2;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: drawText 3s ease-in-out forwards;
+    filter: drop-shadow(0 0 20px rgba(240, 165, 0, 0.3));
+  }
+
+  @keyframes drawText {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  /* ─── BLUEPRINT GRID BACKGROUND ─── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(240,165,0,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(240,165,0,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 5%;
+    background: color-mix(in srgb, var(--navy) 85%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 3px;
+    color: var(--amber);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--gray);
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--amber); }
+
+  /* ─── SIDEBAR TOGGLE BUTTON ─── */
+  .sidebar-toggle {
+    display: none;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--gray);
+    cursor: pointer;
+    font-size: 20px;
+    transition: all 0.3s;
+    align-items: center;
+    justify-content: center;
+    clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+  }
+
+  .sidebar-toggle:hover {
+    color: var(--amber);
+    border-color: var(--amber);
+  }
+
+  /* ─── SIDEBAR ─── */
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 60px;
+    width: 280px;
+    height: calc(100vh - 60px);
+    background: color-mix(in srgb, var(--navy) 95%, transparent);
+    backdrop-filter: blur(12px);
+    border-right: 1px solid var(--border);
+    z-index: 99;
+    padding: 40px 24px;
+    overflow-y: auto;
+    transition: transform 0.3s ease;
+  }
+
+  .sidebar.hidden {
+    transform: translateX(-100%);
+  }
+
+  .sidebar-content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    height: 100%;
+  }
+
+  /* ─── LANGUAGE TOGGLE ─── */
+  .lang-toggle-btn {
+    display: flex;
+    gap: 8px;
+    background: rgba(240, 165, 0, 0.1);
+    border: 1px solid var(--border);
+    padding: 8px;
+    border-radius: 0;
+    clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+    align-self: flex-start;
+    margin-bottom: 20px;
+  }
+
+  .lang-toggle-btn button {
+    background: none;
+    border: none;
+    color: var(--gray);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 6px 12px;
+    transition: all 0.3s;
+  }
+
+  .lang-toggle-btn button.active {
+    color: var(--amber);
+    background: rgba(240, 165, 0, 0.15);
+  }
+
+  .lang-toggle-btn button:hover:not(.active) {
+    color: var(--white);
+  }
+
+  /* ─── THEME TOGGLE SWITCH ─── */
+  .theme-label {
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--gray);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .theme-toggle-switch {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .toggle-checkbox {
+    display: none;
+  }
+
+  .toggle-slider {
+    position: relative;
+    width: 50px;
+    height: 28px;
+    background: rgba(240, 165, 0, 0.2);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    padding: 2px;
+  }
+
+  .toggle-slider::after {
+    content: '';
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background: var(--gray);
+    border-radius: 50%;
+    left: 3px;
+    transition: left 0.3s ease;
+  }
+
+  .toggle-checkbox:checked + .toggle-slider {
+    background: rgba(184, 113, 79, 0.2);
+  }
+
+  .toggle-checkbox:checked + .toggle-slider::after {
+    left: 25px;
+  }
+
+  .toggle-icon {
+    font-size: 14px;
+  }
+
+  /* ─── ADJUST MAIN CONTENT FOR SIDEBAR ─── */
+  main {
+    margin-left: 280px;
+    transition: margin-left 0.3s ease;
+  }
+
+  main.sidebar-hidden {
+    margin-left: 0;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    padding: 100px 7% 60px;
+    gap: 60px;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    right: -200px;
+    top: -100px;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(240,165,0,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-text { animation: fadeUp 0.8s ease both; }
+
+  .hero-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: var(--amber);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 1px;
+    background: var(--amber);
+  }
+
+  .hero-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(56px, 7vw, 96px);
+    line-height: 0.95;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
+
+  .hero-name span { color: var(--amber); }
+
+  .hero-title {
+    font-size: 16px;
+    color: var(--gray);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-weight: 300;
+    margin-bottom: 30px;
+  }
+
+  .hero-desc {
+    font-size: 15px;
+    color: var(--gray);
+    line-height: 1.8;
+    max-width: 420px;
+    margin-bottom: 40px;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--amber);
+    color: var(--navy);
+    padding: 14px 32px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  }
+
+  .btn-primary:hover {
+    background: var(--amber2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(240,165,0,0.3);
+  }
+
+  .btn-outline {
+    border: 1px solid var(--border);
+    color: var(--white);
+    padding: 13px 32px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  }
+
+  .btn-outline:hover {
+    border-color: var(--amber);
+    color: var(--amber);
+  }
+
+  /* ─── HERO PHOTO ─── */
+  .hero-image-wrap {
+    position: relative;
+    animation: fadeIn 1s ease 0.3s both;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-image-wrap::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(135deg, var(--amber), transparent 50%, transparent 50%, var(--amber2) 100%);
+    z-index: -1;
+    clip-path: polygon(20px 0%, 100% 0%, calc(100% - 20px) 100%, 0% 100%);
+  }
+
+  .hero-img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    display: block;
+    clip-path: polygon(20px 0%, 100% 0%, calc(100% - 20px) 100%, 0% 100%);
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* ─── SECTION SHARED ─── */
+  section {
+    position: relative;
+    padding: 80px 7%;
+    z-index: 1;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 60px;
+  }
+
+  .section-tag {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    color: var(--amber);
+    letter-spacing: 2px;
+    opacity: 0.4;
+    min-width: 60px;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 5vw, 48px);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .section-line {
+    flex-grow: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ─── ABOUT ─── */
+  .about-content {
+    max-width: 700px;
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--gray);
+  }
+
+  .about-content p {
+    margin-bottom: 20px;
+  }
+
+  .about-content strong { color: var(--white); }
+
+  /* ─── SKILLS ─── */
+  .skill-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+  }
+
+  .skill-category {
+    background: rgba(26, 34, 54, 0.5);
+    border: 1px solid var(--border);
+    padding: 32px;
+    clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+  }
+
+  .skill-category-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: var(--amber);
+    margin-bottom: 24px;
+    text-transform: uppercase;
+  }
+
+  .skill-item {
+    margin-bottom: 24px;
+  }
+
+  .skill-item:last-child { margin-bottom: 0; }
+
+  .skill-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .skill-level {
+    font-size: 12px;
+    color: var(--gray);
+  }
+
+  .skill-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(240,165,0,0.1);
+    clip-path: polygon(3px 0%, 100% 0%, calc(100% - 3px) 100%, 0% 100%);
+    overflow: hidden;
+  }
+
+  .skill-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--amber), var(--amber2));
+    transition: width 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    width: 0%;
+  }
+
+  /* ─── EDUCATION ─── */
+  .edu-grid {
+    display: grid;
+    gap: 24px;
+  }
+
+  .edu-item {
+    border-left: 3px solid var(--amber);
+    padding-left: 24px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .edu-year {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--amber);
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+
+  .edu-degree {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+
+  .edu-school {
+    font-size: 14px;
+    color: var(--gray);
+  }
+
+  /* ─── EXPERIENCE ─── */
+  .exp-grid {
+    display: grid;
+    gap: 40px;
+  }
+
+  .exp-item {
+    border-left: 3px solid var(--amber);
+    padding-left: 24px;
+    padding-top: 12px;
+  }
+
+  .exp-year {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--amber);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+
+  .exp-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .exp-company {
+    font-size: 14px;
+    color: var(--gray);
+    margin-bottom: 12px;
+  }
+
+  .exp-desc {
+    font-size: 14px;
+    color: var(--gray);
+    line-height: 1.7;
+  }
+
+  /* ─── PROJECTS ─── */
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 28px;
+  }
+
+  .project-card {
+    background: rgba(26, 34, 54, 0.5);
+    border: 1px solid var(--border);
+    padding: 28px;
+    transition: all 0.3s;
+    clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+  }
+
+  .project-card:hover {
+    background: rgba(26, 34, 54, 0.8);
+    border-color: var(--amber);
+    transform: translateY(-8px);
+  }
+
+  .project-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: var(--amber);
+    opacity: 0.3;
+    margin-bottom: 12px;
+  }
+
+  .project-icon {
+    font-size: 32px;
+    margin-bottom: 16px;
+  }
+
+  .project-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 1.5px;
+    color: var(--white);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+
+  .project-desc {
+    font-size: 14px;
+    color: var(--gray);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .p-tag {
+    font-size: 11px;
+    background: rgba(240, 165, 0, 0.1);
+    border: 1px solid var(--border);
+    color: var(--amber);
+    padding: 4px 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    clip-path: polygon(4px 0%, 100% 0%, calc(100% - 4px) 100%, 0% 100%);
+  }
+
+  /* ─── LANGUAGES ─── */
+  .lang-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 28px;
+  }
+
+  .lang-card {
+    background: rgba(26, 34, 54, 0.5);
+    border: 1px solid var(--border);
+    padding: 24px;
+    text-align: center;
+    clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+  }
+
+  .lang-flag {
+    font-size: 48px;
+    margin-bottom: 12px;
+  }
+
+  .lang-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: var(--white);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+  }
+
+  .lang-level {
+    font-size: 12px;
+    color: var(--amber);
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+  }
+
+  .lang-bar {
+    width: 100%;
+    height: 5px;
+    background: rgba(240, 165, 0, 0.1);
+    clip-path: polygon(2px 0%, 100% 0%, calc(100% - 2px) 100%, 0% 100%);
+    overflow: hidden;
+  }
+
+  .lang-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--amber), var(--amber2));
+    transition: width 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    width: 0%;
+  }
+
+  /* ─── CERTIFICATIONS ─── */
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 28px;
+  }
+
+  .cert-card {
+    background: rgba(26, 34, 54, 0.5);
+    border: 1px solid var(--border);
+    padding: 28px;
+    clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+  }
+
+  .cert-issuer {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--amber);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .cert-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+
+  .cert-meta {
+    font-size: 13px;
+    color: var(--gray);
+    letter-spacing: 0.5px;
+  }
+
+  /* ─── CONTACT ─── */
+  .contact-section-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+  }
+
+  .contact-card {
+    background: rgba(26, 34, 54, 0.5);
+    border: 1px solid var(--border);
+    padding: 32px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s;
+    clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+  }
+
+  .contact-card:hover {
+    background: rgba(26, 34, 54, 0.8);
+    border-color: var(--amber);
+    transform: translateY(-8px);
+  }
+
+  .contact-card-icon {
+    font-size: 36px;
+    margin-bottom: 16px;
+  }
+
+  .contact-card-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: var(--amber);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .contact-card-val {
+    font-size: 16px;
+    color: var(--white);
+    word-break: break-word;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--navy2);
+    border-top: 1px solid var(--border);
+    padding: 40px 7%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    z-index: 1;
+    position: relative;
+  }
+
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px;
+    letter-spacing: 3px;
+    color: var(--amber);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .footer-sub {
+    font-size: 13px;
+    color: var(--gray);
+    letter-spacing: 1px;
+  }
+
+  .footer-right {
+    text-align: right;
+    font-size: 13px;
+    color: var(--gray);
+  }
+
+  /* ─── REVEAL ANIMATION ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .reveal.visible {
+    animation: fadeUp 0.6s ease forwards;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+    }
+
+    .sidebar-toggle {
+      display: flex;
+    }
+
+    .sidebar {
+      width: 100%;
+    }
+
+    main {
+      margin-left: 0;
+    }
+
+    .section-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .section-line {
+      width: 100%;
+      height: 1px;
+    }
+
+    .skill-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .project-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .lang-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cert-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-section-grid {
+      grid-template-columns: 1fr;
+    }
+
+    footer {
+      grid-template-columns: 1fr;
+      text-align: left;
+    }
+
+    .footer-right {
+      text-align: left;
+    }
+
+    .hero {
+      padding: 100px 20px 60px;
+    }
+
+    section {
+      padding: 60px 20px;
+    }
+
+    footer {
+      padding: 40px 20px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── INTRO ANIMATION ─── -->
+<div class="intro-overlay" id="intro-overlay">
+  <svg class="intro-svg" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
+    <text class="intro-text-stroke" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" style="font-family: 'Dancing Script', cursive; font-size: 120px; font-weight: 700;">
+      Yassine
+    </text>
+  </svg>
+</div>
+
+<!-- ─── SIDEBAR ─── -->
+<aside class="sidebar hidden" id="sidebar">
+  <div class="sidebar-content">
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <span style="font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--gray); font-weight: 600;">Language / Langue</span>
+      <div class="lang-toggle-btn">
+        <button id="lang-en" class="lang-btn active" data-lang="en">EN</button>
+        <button id="lang-fr" class="lang-btn" data-lang="fr">FR</button>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <label class="theme-label">Theme</label>
+      <div class="theme-toggle-switch">
+        <span class="toggle-icon">🌙</span>
+        <input type="checkbox" id="theme-toggle" class="toggle-checkbox">
+        <label for="theme-toggle" class="toggle-slider"></label>
+        <span class="toggle-icon">☀️</span>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<!-- ─── NAV ─── -->
+<nav>
+  <div class="nav-logo">YASSINE</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact-section">Contact</a></li>
+  </ul>
+  <button class="sidebar-toggle" id="sidebar-toggle">☰</button>
+</nav>
+
+<main id="main-content">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <div class="hero-eyebrow">CIVIL ENGINEER</div>
+      <h1 class="hero-name">Yassine <span>Ferahtia</span></h1>
+      <div class="hero-title">Structural Analysis • Seismic Design • Computational Tools</div>
+      <p class="hero-desc">Civil Engineering student specialising in structural analysis, seismic design, and computational tools. Based in M'Sila, Algeria.</p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn-primary">VIEW PROJECTS</a>
+        <a href="#contact-section" class="btn-outline">GET IN TOUCH</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-header reveal">
+      <div class="section-tag">01</div>
+      <h2 class="section-title">ABOUT</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="about-content reveal">
+      <p>
+        I'm a <strong>civil engineering student</strong> with a passion for structural design and computational methods. My work bridges traditional engineering principles with modern digital tools, particularly focusing on seismic analysis and finite element modelling.
+      </p>
+      <p>
+        I thrive in solving complex engineering challenges and have hands-on experience with industry-standard software including <strong>SAP2000, AutoCAD, MATLAB, and Excel</strong>. I'm particularly interested in how computational tools can optimise structural behaviour and enhance design efficiency.
+      </p>
+      <p>
+        When I'm not working on engineering problems, you'll find me exploring new tools, learning programming languages, and contributing to technical projects. I'm driven by the desire to create resilient, efficient structures that matter.
+      </p>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-header reveal">
+      <div class="section-tag">02</div>
+      <h2 class="section-title">SKILLS</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="skill-grid">
+      <div class="skill-category reveal">
+        <div class="skill-category-title">Structural Analysis</div>
+        <div class="skill-item">
+          <div class="skill-name">
+            <span>Finite Element Analysis</span>
+            <span class="skill-level">90%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-bar-fill" style="width: 90%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">
+            <span>Seismic Design</span>
+            <span class="skill-level">85%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-bar-fill" style="width: 85%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">
+            <span>Reinforced Concrete Design</span>
+            <span class="skill-level">88%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-bar-fill" style="width: 88%"></div></div>
+        </div>
+      </div>
+
+      <div class="skill-category reveal">
+        <div class="skill-category-title">Software Proficiency</div>
+        <div class="skill-item">
+          <div class="skill-name">
+            <span>SAP2000</span>
+            <span class="skill-level">92%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-bar-fill" style="width: 92%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">
+            <span>AutoCAD</span>
+            <span class="skill-level">87%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-bar-fill" style="width: 87%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">
+            <span>MATLAB</span>
+            <span class="skill-level">80%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-bar-fill" style="width: 80%"></div></div>
+        </div>
+      </div>
+
+      <div class="skill-category reveal">
+        <div class="skill-category-title">Technical Competencies</div>
+        <div class="skill-item">
+          <div class="skill-name">
+            <span>Project Planning</span>
+            <span class="skill-level">84%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-bar-fill" style="width: 84%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">
+            <span>Cost Estimation</span>
+            <span class="skill-level">78%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-bar-fill" style="width: 78%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">
+            <span>Surveying</span>
+            <span class="skill-level">75%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-bar-fill" style="width: 75%"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="section-header reveal">
+      <div class="section-tag">03</div>
+      <h2 class="section-title">EDUCATION</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="edu-grid">
+      <div class="edu-item reveal">
+        <div class="edu-year">2021 — Present</div>
+        <div class="edu-degree">Bachelor of Civil Engineering</div>
+        <div class="edu-school">University of M'Sila · Algeria</div>
+      </div>
+      <div class="edu-item reveal">
+        <div class="edu-year">2020 — 2021</div>
+        <div class="edu-degree">Scientific Baccalaureate</div>
+        <div class="edu-school">Maadid High School · M'Sila, Algeria</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-header reveal">
+      <div class="section-tag">04</div>
+      <h2 class="section-title">EXPERIENCE</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="exp-grid">
+      <div class="exp-item reveal">
+        <div class="exp-year">2023 — Present</div>
+        <div class="exp-title">Student Researcher</div>
+        <div class="exp-company">University of M'Sila · Department of Civil Engineering</div>
+        <div class="exp-desc">Conducting research on seismic resilience of reinforced concrete structures. Developing numerical models using SAP2000 and MATLAB to predict structural behaviour under seismic loading. Collaborating with faculty on publications and technical presentations.</div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-year">2022 — 2023</div>
+        <div class="exp-title">Engineering Intern</div>
+        <div class="exp-company">Local Engineering Consultancy · M'Sila</div>
+        <div class="exp-desc">Assisted in structural design projects and site surveys. Gained practical experience with AutoCAD, cost estimation, and project documentation. Participated in construction site inspections and quality control assessments.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-header reveal">
+      <div class="section-tag">05</div>
+      <h2 class="section-title">PROJECTS</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="project-grid">
+      <div class="project-card reveal">
+        <div class="project-num">01</div>
+        <div class="project-icon">🏗️</div>
+        <div class="project-title">Seismic Study — R+4 RC Building</div>
+        <div class="project-desc">Structural design and seismic analysis of a 5-storey reinforced concrete residential building.</div>
+        <div class="project-tags">
+          <span class="p-tag">SAP2000</span>
+          <span class="p-tag">AutoCAD</span>
+          <span class="p-tag">RC Design</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-num">02</div>
+        <div class="project-icon">📐</div>
+        <div class="project-title">Topographic Surveying</div>
+        <div class="project-desc">Field survey of a defined area using a theodolite, including data collection and map interpretation.</div>
+        <div class="project-tags">
+          <span class="p-tag">Surveying</span>
+          <span class="p-tag">Theodolite</span>
+          <span class="p-tag">Geomatics</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-num">03</div>
+        <div class="project-icon">💻</div>
+        <div class="project-title">Computational Tools in Engineering</div>
+        <div class="project-desc">Technical presentation on the role of computational software in modern civil engineering practice.</div>
+        <div class="project-tags">
+          <span class="p-tag">Presentation</span>
+          <span class="p-tag">Research</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-num">04</div>
+        <div class="project-icon">🧪</div>
+        <div class="project-title">Concrete Admixtures Research</div>
+        <div class="project-desc">Academic study on chemical admixtures and their role in improving concrete performance and durability.</div>
+        <div class="project-tags">
+          <span class="p-tag">Materials</span>
+          <span class="p-tag">Chemistry</span>
+          <span class="p-tag">Research</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-num">05</div>
+        <div class="project-icon">📊</div>
+        <div class="project-title">Soil Settlement Prediction (MATLAB)</div>
+        <div class="project-desc">Developed a numerical tool to estimate soil settlement behaviour based on geotechnical parameters.</div>
+        <div class="project-tags">
+          <span class="p-tag">MATLAB</span>
+          <span class="p-tag">Geotechnics</span>
+          <span class="p-tag">Numerical</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-num">06</div>
+        <div class="project-icon">🗓️</div>
+        <div class="project-title">Construction Project Scheduling</div>
+        <div class="project-desc">Full project schedule and critical path analysis (CPM) for a residential construction project.</div>
+        <div class="project-tags">
+          <span class="p-tag">MS Project</span>
+          <span class="p-tag">CPM</span>
+          <span class="p-tag">Planning</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-num">07</div>
+        <div class="project-icon">🔩</div>
+        <div class="project-title">RC Beam Design</div>
+        <div class="project-desc">Full reinforced concrete beam design integrating AutoCAD drawings, SAP2000 analysis, and Excel calculations.</div>
+        <div class="project-tags">
+          <span class="p-tag">AutoCAD</span>
+          <span class="p-tag">SAP2000</span>
+          <span class="p-tag">Excel</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-num">08</div>
+        <div class="project-icon">💰</div>
+        <div class="project-title">Quantity Surveying System</div>
+        <div class="project-desc">Excel-based system for automated quantity take-off and cost estimation for construction projects.</div>
+        <div class="project-tags">
+          <span class="p-tag">Excel</span>
+          <span class="p-tag">Cost Estimation</span>
+          <span class="p-tag">QS</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-num">09</div>
+        <div class="project-icon">🚦</div>
+        <div class="project-title">Traffic Engineering Analysis</div>
+        <div class="project-desc">Traffic flow analysis study with data collection, modelling, and proposed optimisation measures.</div>
+        <div class="project-tags">
+          <span class="p-tag">Traffic</span>
+          <span class="p-tag">Analysis</span>
+          <span class="p-tag">Urban</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LANGUAGES -->
+  <section>
+    <div class="section-header reveal">
+      <div class="section-tag">06</div>
+      <h2 class="section-title">LANGUAGES</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="lang-grid">
+      <div class="lang-card reveal">
+        <div class="lang-flag">🇩🇿</div>
+        <div class="lang-name">ARABIC</div>
+        <div class="lang-level">Native</div>
+        <div class="lang-bar"><div class="lang-fill" style="width: 100%"></div></div>
+      </div>
+      <div class="lang-card reveal">
+        <div class="lang-flag">🇫🇷</div>
+        <div class="lang-name">FRENCH</div>
+        <div class="lang-level">B2</div>
+        <div class="lang-bar"><div class="lang-fill" style="width: 72%"></div></div>
+      </div>
+      <div class="lang-card reveal">
+        <div class="lang-flag">🇬🇧</div>
+        <div class="lang-name">ENGLISH</div>
+        <div class="lang-level">C1</div>
+        <div class="lang-bar"><div class="lang-fill" style="width: 86%"></div></div>
+      </div>
+      <div class="lang-card reveal">
+        <div class="lang-flag">🇮🇹</div>
+        <div class="lang-name">ITALIAN</div>
+        <div class="lang-level">A2</div>
+        <div class="lang-bar"><div class="lang-fill" style="width: 28%"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications">
+    <div class="section-header reveal">
+      <div class="section-tag">07</div>
+      <h2 class="section-title">CERTIFICATIONS</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="cert-grid">
+      <div class="cert-card reveal">
+        <div class="cert-issuer">Harvard · CS50</div>
+        <div class="cert-title">CS50's Introduction to Programming with Python</div>
+        <div class="cert-meta">Python · Algorithms · Problem Solving</div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-issuer">HubSpot Academy</div>
+        <div class="cert-title">Digital Marketing Certification</div>
+        <div class="cert-meta">SEO · Content Marketing · Analytics</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact-section" style="background: var(--navy2);">
+    <div class="section-header reveal">
+      <div class="section-tag">08</div>
+      <h2 class="section-title">CONTACT</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="contact-section-grid">
+      <a class="contact-card reveal" href="mailto:yassineferahtia1@gmail.com">
+        <div class="contact-card-icon">✉</div>
+        <div class="contact-card-label">Email</div>
+        <div class="contact-card-val">yassineferahtia1@gmail.com</div>
+      </a>
+      <a class="contact-card reveal" href="tel:+213777773097">
+        <div class="contact-card-icon">☎</div>
+        <div class="contact-card-label">Phone</div>
+        <div class="contact-card-val">+213 777 773 097</div>
+      </a>
+      <a class="contact-card reveal" href="https://maps.google.com/?q=Maadid,M%27Sila,Algeria" target="_blank" rel="noopener">
+        <div class="contact-card-icon">📍</div>
+        <div class="contact-card-label">Location</div>
+        <div class="contact-card-val">Mâadid, M'Sila, Algeria</div>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">YASSINE FERAHTIA</div>
+    <div class="footer-sub">Civil Engineer · Algeria</div>
+  </div>
+  <div class="footer-right">
+    <div>yassineferahtia1@gmail.com</div>
+    <div style="margin-top: 4px;">+213 777 773 097</div>
+  </div>
+</footer>
+
+<script>
+// Language translations
+const translations = {
+  en: {
+    navAbout: 'About',
+    navSkills: 'Skills',
+    navEducation: 'Education',
+    navExperience: 'Experience',
+    navProjects: 'Projects',
+    navContact: 'Contact',
+    
+    heroEyebrow: 'CIVIL ENGINEER',
+    heroTitle: 'Structural Analysis • Seismic Design • Computational Tools',
+    heroDesc: 'Civil Engineering student specialising in structural analysis, seismic design, and computational tools. Based in M\'Sila, Algeria.',
+    heroBtnProjects: 'VIEW PROJECTS',
+    heroBtnContact: 'GET IN TOUCH',
+    
+    aboutTitle: 'ABOUT',
+    aboutP1: 'I\'m a civil engineering student with a passion for structural design and computational methods. My work bridges traditional engineering principles with modern digital tools, particularly focusing on seismic analysis and finite element modelling.',
+    aboutP2: 'I thrive in solving complex engineering challenges and have hands-on experience with industry-standard software including SAP2000, AutoCAD, MATLAB, and Excel. I\'m particularly interested in how computational tools can optimise structural behaviour and enhance design efficiency.',
+    aboutP3: 'When I\'m not working on engineering problems, you\'ll find me exploring new tools, learning programming languages, and contributing to technical projects. I\'m driven by the desire to create resilient, efficient structures that matter.',
+    
+    skillsTitle: 'SKILLS',
+    skillsStructuralAnalysis: 'Structural Analysis',
+    skillsFEA: 'Finite Element Analysis',
+    skillsSeismic: 'Seismic Design',
+    skillsRC: 'Reinforced Concrete Design',
+    skillsSoftware: 'Software Proficiency',
+    skillsSAP2000: 'SAP2000',
+    skillsAutoCAD: 'AutoCAD',
+    skillsMATLAB: 'MATLAB',
+    skillsTechnical: 'Technical Competencies',
+    skillsPlanning: 'Project Planning',
+    skillsCost: 'Cost Estimation',
+    skillsSurveying: 'Surveying',
+    
+    educationTitle: 'EDUCATION',
+    eduDegree: 'Bachelor of Civil Engineering',
+    eduSchool1: 'University of M\'Sila · Algeria',
+    eduDegree2: 'Scientific Baccalaureate',
+    eduSchool2: 'Maadid High School · M\'Sila, Algeria',
+    
+    experienceTitle: 'EXPERIENCE',
+    expTitle1: 'Student Researcher',
+    expCompany1: 'University of M\'Sila · Department of Civil Engineering',
+    expDesc1: 'Conducting research on seismic resilience of reinforced concrete structures. Developing numerical models using SAP2000 and MATLAB to predict structural behaviour under seismic loading. Collaborating with faculty on publications and technical presentations.',
+    expTitle2: 'Engineering Intern',
+    expCompany2: 'Local Engineering Consultancy · M\'Sila',
+    expDesc2: 'Assisted in structural design projects and site surveys. Gained practical experience with AutoCAD, cost estimation, and project documentation. Participated in construction site inspections and quality control assessments.',
+    
+    projectsTitle: 'PROJECTS',
+    proj1Title: 'Seismic Study — R+4 RC Building',
+    proj1Desc: 'Structural design and seismic analysis of a 5-storey reinforced concrete residential building.',
+    proj2Title: 'Topographic Surveying',
+    proj2Desc: 'Field survey of a defined area using a theodolite, including data collection and map interpretation.',
+    proj3Title: 'Computational Tools in Engineering',
+    proj3Desc: 'Technical presentation on the role of computational software in modern civil engineering practice.',
+    proj4Title: 'Concrete Admixtures Research',
+    proj4Desc: 'Academic study on chemical admixtures and their role in improving concrete performance and durability.',
+    proj5Title: 'Soil Settlement Prediction (MATLAB)',
+    proj5Desc: 'Developed a numerical tool to estimate soil settlement behaviour based on geotechnical parameters.',
+    proj6Title: 'Construction Project Scheduling',
+    proj6Desc: 'Full project schedule and critical path analysis (CPM) for a residential construction project.',
+    proj7Title: 'RC Beam Design',
+    proj7Desc: 'Full reinforced concrete beam design integrating AutoCAD drawings, SAP2000 analysis, and Excel calculations.',
+    proj8Title: 'Quantity Surveying System',
+    proj8Desc: 'Excel-based system for automated quantity take-off and cost estimation for construction projects.',
+    proj9Title: 'Traffic Engineering Analysis',
+    proj9Desc: 'Traffic flow analysis study with data collection, modelling, and proposed optimisation measures.',
+    
+    languagesTitle: 'LANGUAGES',
+    certTitle: 'CERTIFICATIONS',
+    cert1Issuer: 'Harvard · CS50',
+    cert1Title: 'CS50\'s Introduction to Programming with Python',
+    cert1Meta: 'Python · Algorithms · Problem Solving',
+    cert2Issuer: 'HubSpot Academy',
+    cert2Title: 'Digital Marketing Certification',
+    cert2Meta: 'SEO · Content Marketing · Analytics',
+    
+    contactTitle: 'CONTACT',
+    contactEmail: 'Email',
+    contactPhone: 'Phone',
+    contactLocation: 'Location',
+    
+    footerName: 'YASSINE FERAHTIA',
+    footerSub: 'Civil Engineer · Algeria'
+  },
+  fr: {
+    navAbout: 'À propos',
+    navSkills: 'Compétences',
+    navEducation: 'Éducation',
+    navExperience: 'Expérience',
+    navProjects: 'Projets',
+    navContact: 'Contact',
+    
+    heroEyebrow: 'INGÉNIEUR CIVIL',
+    heroTitle: 'Analyse Structurelle • Conception Parasismique • Outils Informatiques',
+    heroDesc: 'Étudiant en génie civil spécialisé dans l\'analyse structurelle, la conception parasismique et les outils informatiques. Basé à M\'Sila, Algérie.',
+    heroBtnProjects: 'VOIR LES PROJETS',
+    heroBtnContact: 'ME CONTACTER',
+    
+    aboutTitle: 'À PROPOS',
+    aboutP1: 'Je suis un étudiant en génie civil passionné par la conception structurelle et les méthodes informatiques. Mon travail comble le fossé entre les principes d\'ingénierie traditionnels et les outils numériques modernes, en me concentrant particulièrement sur l\'analyse sismique et la modélisation par éléments finis.',
+    aboutP2: 'J\'excelle dans la résolution de problèmes d\'ingénierie complexes et j\'ai une expérience pratique des logiciels standards du secteur, notamment SAP2000, AutoCAD, MATLAB et Excel. Je m\'intéresse particulièrement à la façon dont les outils informatiques peuvent optimiser le comportement structurel et améliorer l\'efficacité de la conception.',
+    aboutP3: 'Quand je ne travaille pas sur des problèmes d\'ingénierie, vous me trouverez en train d\'explorer de nouveaux outils, d\'apprendre des langages de programmation et de contribuer à des projets techniques. Je suis motivé par le désir de créer des structures résilientes et efficaces qui ont du sens.',
+    
+    skillsTitle: 'COMPÉTENCES',
+    skillsStructuralAnalysis: 'Analyse Structurelle',
+    skillsFEA: 'Analyse par Éléments Finis',
+    skillsSeismic: 'Conception Parasismique',
+    skillsRC: 'Conception du Béton Armé',
+    skillsSoftware: 'Maîtrise des Logiciels',
+    skillsSAP2000: 'SAP2000',
+    skillsAutoCAD: 'AutoCAD',
+    skillsMATLAB: 'MATLAB',
+    skillsTechnical: 'Compétences Techniques',
+    skillsPlanning: 'Gestion de Projets',
+    skillsCost: 'Estimation des Coûts',
+    skillsSurveying: 'Levé Topographique',
+    
+    educationTitle: 'ÉDUCATION',
+    eduDegree: 'Licence en Génie Civil',
+    eduSchool1: 'Université de M\'Sila · Algérie',
+    eduDegree2: 'Baccalauréat Scientifique',
+    eduSchool2: 'Lycée Maadid · M\'Sila, Algérie',
+    
+    experienceTitle: 'EXPÉRIENCE',
+    expTitle1: 'Chercheur Étudiant',
+    expCompany1: 'Université de M\'Sila · Département de Génie Civil',
+    expDesc1: 'Menée de recherches sur la résilience parasismique des structures en béton armé. Développement de modèles numériques utilisant SAP2000 et MATLAB pour prédire le comportement structurel sous chargement sismique. Collaboration avec les professeurs sur les publications et présentations techniques.',
+    expTitle2: 'Stagiaire en Ingénierie',
+    expCompany2: 'Cabinet de Conseil en Ingénierie · M\'Sila',
+    expDesc2: 'Assistance dans les projets de conception structurelle et les levés de terrain. Expérience pratique avec AutoCAD, l\'estimation des coûts et la documentation de projets. Participation aux inspections de chantiers et aux évaluations du contrôle qualité.',
+    
+    projectsTitle: 'PROJETS',
+    proj1Title: 'Étude Sismique — Bâtiment R+4 en BA',
+    proj1Desc: 'Conception structurelle et analyse sismique d\'un bâtiment résidentiel en béton armé de 5 étages.',
+    proj2Title: 'Levé Topographique',
+    proj2Desc: 'Levé de terrain d\'une zone définie à l\'aide d\'un théodolite, y compris la collecte de données et l\'interprétation des cartes.',
+    proj3Title: 'Outils Informatiques en Ingénierie',
+    proj3Desc: 'Présentation technique sur le rôle des logiciels informatiques dans la pratique moderne du génie civil.',
+    proj4Title: 'Recherche sur les Adjuvants du Béton',
+    proj4Desc: 'Étude académique sur les adjuvants chimiques et leur rôle dans l\'amélioration de la performance et de la durabilité du béton.',
+    proj5Title: 'Prédiction du Tassement du Sol (MATLAB)',
+    proj5Desc: 'Développement d\'un outil numérique pour estimer le comportement du tassement du sol en fonction des paramètres géotechniques.',
+    proj6Title: 'Planification de Projets de Construction',
+    proj6Desc: 'Calendrier complet du projet et analyse du chemin critique (CPM) pour un projet de construction résidentielle.',
+    proj7Title: 'Conception de Poutre en BA',
+    proj7Desc: 'Conception complète de poutre en béton armé intégrant les dessins AutoCAD, l\'analyse SAP2000 et les calculs Excel.',
+    proj8Title: 'Système de Métré',
+    proj8Desc: 'Système basé sur Excel pour la quantification automatisée et l\'estimation des coûts des projets de construction.',
+    proj9Title: 'Analyse en Ingénierie du Trafic',
+    proj9Desc: 'Étude d\'analyse du flux de trafic avec collecte de données, modélisation et mesures d\'optimisation proposées.',
+    
+    languagesTitle: 'LANGUES',
+    certTitle: 'CERTIFICATIONS',
+    cert1Issuer: 'Harvard · CS50',
+    cert1Title: 'Introduction à la Programmation avec Python CS50',
+    cert1Meta: 'Python · Algorithmes · Résolution de Problèmes',
+    cert2Issuer: 'HubSpot Academy',
+    cert2Title: 'Certification en Marketing Numérique',
+    cert2Meta: 'SEO · Marketing de Contenu · Analyse',
+    
+    contactTitle: 'CONTACT',
+    contactEmail: 'Email',
+    contactPhone: 'Téléphone',
+    contactLocation: 'Localisation',
+    
+    footerName: 'YASSINE FERAHTIA',
+    footerSub: 'Ingénieur Civil · Algérie'
+  }
+};
+
+// Initialize language
+let currentLanguage = localStorage.getItem('language') || 'en';
+
+// Function to update all text content
+function updateLanguage(lang) {
+  currentLanguage = lang;
+  localStorage.setItem('language', lang);
+  
+  const t = translations[lang];
+  
+  // Nav links
+  document.querySelectorAll('.nav-links a').forEach((link, i) => {
+    const keys = ['navAbout', 'navSkills', 'navEducation', 'navExperience', 'navProjects', 'navContact'];
+    if (i < keys.length) link.textContent = t[keys[i]];
+  });
+  
+  // Hero section
+  document.querySelector('.hero-eyebrow').textContent = t.heroEyebrow;
+  document.querySelector('.hero-title').textContent = t.heroTitle;
+  document.querySelector('.hero-desc').textContent = t.heroDesc;
+  document.querySelectorAll('.hero-btns a')[0].textContent = t.heroBtnProjects;
+  document.querySelectorAll('.hero-btns a')[1].textContent = t.heroBtnContact;
+  
+  // Section titles
+  const sectionTitles = [
+    { selector: '#about .section-title', key: 'aboutTitle' },
+    { selector: '#skills .section-title', key: 'skillsTitle' },
+    { selector: '#education .section-title', key: 'educationTitle' },
+    { selector: '#experience .section-title', key: 'experienceTitle' },
+    { selector: '#projects .section-title', key: 'projectsTitle' },
+    { selector: 'section:has(.lang-grid) .section-title', key: 'languagesTitle' },
+    { selector: '#certifications .section-title', key: 'certTitle' },
+    { selector: '#contact-section .section-title', key: 'contactTitle' }
+  ];
+  
+  sectionTitles.forEach(item => {
+    const el = document.querySelector(item.selector);
+    if (el) el.textContent = t[item.key];
+  });
+  
+  // About content
+  const aboutParas = document.querySelectorAll('.about-content p');
+  if (aboutParas[0]) aboutParas[0].innerHTML = t.aboutP1;
+  if (aboutParas[1]) aboutParas[1].innerHTML = t.aboutP2;
+  if (aboutParas[2]) aboutParas[2].innerHTML = t.aboutP3;
+  
+  // Skills
+  const skillCategories = document.querySelectorAll('.skill-category-title');
+  if (skillCategories[0]) skillCategories[0].textContent = t.skillsStructuralAnalysis;
+  if (skillCategories[1]) skillCategories[1].textContent = t.skillsSoftware;
+  if (skillCategories[2]) skillCategories[2].textContent = t.skillsTechnical;
+  
+  const skillNames = document.querySelectorAll('.skill-name span:first-child');
+  const skillKeysMap = [
+    'skillsFEA', 'skillsSeismic', 'skillsRC',
+    'skillsSAP2000', 'skillsAutoCAD', 'skillsMATLAB',
+    'skillsPlanning', 'skillsCost', 'skillsSurveying'
+  ];
+  skillNames.forEach((el, i) => {
+    if (skillKeysMap[i]) el.textContent = t[skillKeysMap[i]];
+  });
+  
+  // Education
+  const eduItems = document.querySelectorAll('.edu-degree');
+  if (eduItems[0]) eduItems[0].textContent = t.eduDegree;
+  if (eduItems[1]) eduItems[1].textContent = t.eduDegree2;
+  
+  const eduSchools = document.querySelectorAll('.edu-school');
+  if (eduSchools[0]) eduSchools[0].textContent = t.eduSchool1;
+  if (eduSchools[1]) eduSchools[1].textContent = t.eduSchool2;
+  
+  // Experience
+  const expTitles = document.querySelectorAll('.exp-title');
+  if (expTitles[0]) expTitles[0].textContent = t.expTitle1;
+  if (expTitles[1]) expTitles[1].textContent = t.expTitle2;
+  
+  const expCompanies = document.querySelectorAll('.exp-company');
+  if (expCompanies[0]) expCompanies[0].textContent = t.expCompany1;
+  if (expCompanies[1]) expCompanies[1].textContent = t.expCompany2;
+  
+  const expDescs = document.querySelectorAll('.exp-desc');
+  if (expDescs[0]) expDescs[0].textContent = t.expDesc1;
+  if (expDescs[1]) expDescs[1].textContent = t.expDesc2;
+  
+  // Projects
+  const projects = [
+    { titleSel: '.project-grid .project-card:nth-child(1) .project-title', descSel: '.project-grid .project-card:nth-child(1) .project-desc', titleKey: 'proj1Title', descKey: 'proj1Desc' },
+    { titleSel: '.project-grid .project-card:nth-child(2) .project-title', descSel: '.project-grid .project-card:nth-child(2) .project-desc', titleKey: 'proj2Title', descKey: 'proj2Desc' },
+    { titleSel: '.project-grid .project-card:nth-child(3) .project-title', descSel: '.project-grid .project-card:nth-child(3) .project-desc', titleKey: 'proj3Title', descKey: 'proj3Desc' },
+    { titleSel: '.project-grid .project-card:nth-child(4) .project-title', descSel: '.project-grid .project-card:nth-child(4) .project-desc', titleKey: 'proj4Title', descKey: 'proj4Desc' },
+    { titleSel: '.project-grid .project-card:nth-child(5) .project-title', descSel: '.project-grid .project-card:nth-child(5) .project-desc', titleKey: 'proj5Title', descKey: 'proj5Desc' },
+    { titleSel: '.project-grid .project-card:nth-child(6) .project-title', descSel: '.project-grid .project-card:nth-child(6) .project-desc', titleKey: 'proj6Title', descKey: 'proj6Desc' },
+    { titleSel: '.project-grid .project-card:nth-child(7) .project-title', descSel: '.project-grid .project-card:nth-child(7) .project-desc', titleKey: 'proj7Title', descKey: 'proj7Desc' },
+    { titleSel: '.project-grid .project-card:nth-child(8) .project-title', descSel: '.project-grid .project-card:nth-child(8) .project-desc', titleKey: 'proj8Title', descKey: 'proj8Desc' },
+    { titleSel: '.project-grid .project-card:nth-child(9) .project-title', descSel: '.project-grid .project-card:nth-child(9) .project-desc', titleKey: 'proj9Title', descKey: 'proj9Desc' }
+  ];
+  
+  projects.forEach(proj => {
+    const titleEl = document.querySelector(proj.titleSel);
+    const descEl = document.querySelector(proj.descSel);
+    if (titleEl) titleEl.textContent = t[proj.titleKey];
+    if (descEl) descEl.textContent = t[proj.descKey];
+  });
+  
+  // Certifications
+  const certCards = document.querySelectorAll('.cert-card');
+  if (certCards[0]) {
+    certCards[0].querySelector('.cert-issuer').textContent = t.cert1Issuer;
+    certCards[0].querySelector('.cert-title').textContent = t.cert1Title;
+    certCards[0].querySelector('.cert-meta').textContent = t.cert1Meta;
+  }
+  if (certCards[1]) {
+    certCards[1].querySelector('.cert-issuer').textContent = t.cert2Issuer;
+    certCards[1].querySelector('.cert-title').textContent = t.cert2Title;
+    certCards[1].querySelector('.cert-meta').textContent = t.cert2Meta;
+  }
+  
+  // Contact
+  const contactCards = document.querySelectorAll('.contact-card');
+  const contactLabels = [t.contactEmail, t.contactPhone, t.contactLocation];
+  contactCards.forEach((card, i) => {
+    const label = card.querySelector('.contact-card-label');
+    if (label) label.textContent = contactLabels[i];
+  });
+  
+  // Footer
+  document.querySelector('.footer-logo').textContent = t.footerName;
+  document.querySelector('.footer-sub').textContent = t.footerSub;
+  
+  // Update button states
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.remove('active');
+    if (btn.dataset.lang === lang) btn.classList.add('active');
+  });
+}
+
+// Language button event listeners
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    updateLanguage(btn.dataset.lang);
+  });
+});
+
+// Initialize with stored language
+updateLanguage(currentLanguage);
+const sidebarToggle = document.getElementById('sidebar-toggle');
+const sidebar = document.getElementById('sidebar');
+const mainContent = document.getElementById('main-content');
+
+sidebarToggle.addEventListener('click', () => {
+  sidebar.classList.toggle('hidden');
+  mainContent.classList.toggle('sidebar-hidden');
+});
+
+// Close sidebar when clicking nav links on mobile
+document.querySelectorAll('nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    sidebar.classList.add('hidden');
+    mainContent.classList.remove('sidebar-hidden');
+  });
+});
+
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 80);
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(r => observer.observe(r));
+
+// Skill bar animation
+const skillFills = document.querySelectorAll('.skill-bar-fill');
+const skillObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const w = e.target.style.width;
+      e.target.style.width = '0';
+      setTimeout(() => { e.target.style.width = w; }, 200);
+      skillObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+skillFills.forEach(f => skillObs.observe(f));
+
+// Language bar animation
+const langFills = document.querySelectorAll('.lang-fill');
+const langObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const w = e.target.style.width;
+      e.target.style.width = '0';
+      setTimeout(() => { e.target.style.width = w; }, 200);
+      langObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+langFills.forEach(f => langObs.observe(f));
+
+// ─── INTRO ANIMATION ─── 
+const introOverlay = document.getElementById('intro-overlay');
+const hasSeenIntro = localStorage.getItem('hasSeenIntro');
+
+if (hasSeenIntro) {
+  // User has visited before, hide intro immediately
+  introOverlay.classList.add('hidden');
+} else {
+  // First time visitor, show the animation then hide
+  localStorage.setItem('hasSeenIntro', 'true');
+  setTimeout(() => {
+    introOverlay.classList.add('hidden');
+  }, 3800); // 3s animation + 0.8s fade out = 3.8s total
+}
+
+// ─── THEME TOGGLE ───
+const themeToggle = document.getElementById('theme-toggle');
+const htmlElement = document.documentElement;
+const savedTheme = localStorage.getItem('theme') || 'dark';
+
+// Set initial theme
+if (savedTheme === 'light') {
+  htmlElement.classList.add('light-mode');
+  themeToggle.checked = true;
+} else {
+  htmlElement.classList.remove('light-mode');
+  themeToggle.checked = false;
+}
+
+// Listen for theme toggle changes
+themeToggle.addEventListener('change', (e) => {
+  if (e.target.checked) {
+    htmlElement.classList.add('light-mode');
+    localStorage.setItem('theme', 'light');
+  } else {
+    htmlElement.classList.remove('light-mode');
+    localStorage.setItem('theme', 'dark');
+  }
+});
+</script>
+</body>
+</html>
